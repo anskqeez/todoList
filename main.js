@@ -1,6 +1,6 @@
 import { createTask } from './src/js/createTask';
-import { loadTasks } from './src/js/loadTasks';
 import { deleteTask } from './src/js/deleteTask';
+import { loadTasks } from './src/js/loadTasks';
 import './src/style/main.scss';
 
 const taskForm = document.querySelector('#task-form');
