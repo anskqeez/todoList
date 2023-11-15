@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1 class="project__title">Todo List</h1>
+    <form id="task-form">
+      <input type="text" id="form-title" placeholder="Заголовок задачи" required>
+      <textarea id="form-description" placeholder="Описание задачи" required></textarea>
+      <button type="submit" class="form-btn">Add new task</button>
+    </form>
+
+    <div id="tasks-container"></div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
