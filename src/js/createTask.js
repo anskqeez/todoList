@@ -1,4 +1,4 @@
-import { createButton } from '../../index';
+import { createButton } from './createBtn';
 import { saveTask } from './loadTasks';
 
 export function createTask(event) {

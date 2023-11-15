@@ -1,4 +1,4 @@
-import { createButton } from '../../index';
+import { createButton } from './createBtn';
 
 export function loadTasks() {
 	const tasksContainer = document.querySelector('#tasks-container');

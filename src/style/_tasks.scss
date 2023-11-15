@@ -1,8 +1,22 @@
+#app {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-height: 100vh;
+	box-sizing: border-box;
+	margin-top: 10%;
+
+}
 #task-form {
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto 1.25rem;
+	height: 250px;
+	overflow: auto;
 	gap: 0.65rem;
+	justify-content: center;
+	width: 100%;
 	max-width: clamp(30%, 75vw, 400px);
 
 	input[type='text'],
@@ -35,59 +49,65 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	margin: 0 auto;
+	// overflow-y: scroll;
+	width: 100%;
 	max-width: clamp(30%, 75vw, 400px);
+	position: relative;
 	gap: 1.25rem;
 	& .task {
 		background-color: #fff;
 		padding: 1.25rem;
 		position: relative;
-		transition: background-color 0.3s ease;
+		transition: background-color 0.3s ease, transform 0.7s ease-out, opacity 0.7s ease-out,
+			position 0.7s ease-out;
 		width: 100%;
 		border-radius: var(--border-radius);
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		cursor: pointer;
 		box-sizing: border-box;
+		&.deleted {
+			transform: translateX(-250%);
+			opacity: 0;
+		}
 		& .wrapper__btn {
 			display: flex;
-			gap: 1rem;
 			align-items: center;
 			justify-content: center;
+			& > * {
+				--width: 40px;
+				--height: var(--width);
+				position: absolute;
+				border: none;
+				width: var(--width);
+				height: var(--height);
+				transform: translateY(-50%);
+				cursor: pointer;
+				box-sizing: border-box;
+				&:hover {
+					outline: 1px solid #000;
+					border-radius: var(--border-radius);
+				}
+			}
 		}
 		& .checkmark {
-			--width: 40px;
-			--height: var(--width);
-			position: absolute;
-			width: var(--width);
-			border: none;
 			top: 50%;
-			right: 15%;
-			transform: translateY(-50%);
-			height: var(--height);
+			right: 14.5%;
 			background: url('../assets/checkMark.svg');
 			background-size: cover;
-			cursor: pointer;
 		}
 		& .delete {
-			--width: 40px;
-			--height: var(--width);
-			position: absolute;
-			width: var(--width);
-			border: none;
 			top: 50%;
-			right: 7.5%;
-			transform: translateY(-50%);
-			height: var(--height);
+			right: 3%;
 			background: url('../assets/xMark.svg');
 			background-size: cover;
-			cursor: pointer;
 		}
 		& h3 {
 			margin: 0 auto 0.65rem;
 		}
 		& p {
 			margin: 0;
-			// padding: 0.5rem;
 			background-color: #fff;
 			transition: background-color 0.3s ease;
 		}
