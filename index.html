@@ -17,7 +17,23 @@
       <button type="submit" class="form-btn">Add new task</button>
     </form>
 
-    <div id="tasks-container"></div>
+    <div id="tasks-container">
+      <h2 class="no__tasks">No tasks yet...</h2>
+    </div>
+  </div>
+  <div class="modal__overlay">
+    <div class="modal__wrapper">
+      <div class="modal__info">
+        <h2 class="modal__title">Are you sure want to delete?</h2>
+        <p class="modal__text">All data will be lost!</p>
+      </div>
+
+      <div class="modal__btns">
+        <button class="modal__ok"></button>
+        <button class="modal__delete"></button>
+      </div>
+      <button class="modal__close"></button>
+    </div>
   </div>
   <script type="module" src="./main.js"></script>
 </body>

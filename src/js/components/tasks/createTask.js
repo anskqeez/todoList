@@ -1,8 +1,8 @@
 import { createButton } from './createBtn';
-import { saveTask } from './loadTasks';
-
+import { saveTask } from './localStorage/loadTasks';
+const tasksContainer = document.querySelector('#tasks-container');
+const noTasks = document.querySelector('.no__tasks');
 export function createTask(event) {
-	const tasksContainer = document.querySelector('#tasks-container');
 	event.preventDefault();
 	const formTitle = document.querySelector('#form-title');
 	const formDesc = document.querySelector('#form-description');
@@ -16,18 +16,27 @@ export function createTask(event) {
 
 	taskTitle.textContent = formTitleValue;
 	taskDesc.textContent = formDescValue;
-	taskContainer.appendChild(taskTitle);
-	taskContainer.appendChild(taskDesc);
-
+	taskContainer.append(taskTitle);
+	taskContainer.append(taskDesc);
 	const checkMarkBtn = createButton(taskContainer, 'checkmark');
 	const deleteBtn = createButton(taskContainer, 'delete');
-	tasksContainer.appendChild(taskContainer);
+	tasksContainer.append(taskContainer);
 	// Сохранение задач в localStorage
 	saveTask(formTitleValue, formDescValue, checkMarkBtn, deleteBtn);
 	clearFields(formTitle, formDesc);
+	updateNoTasksVisibility();
 }
 
 export function clearFields(firstField, secondField) {
 	firstField.value = '';
 	secondField.value = '';
 }
+
+export function updateNoTasksVisibility() {
+	const tasks = tasksContainer.querySelectorAll('.task');
+	if (tasks.length > 0) {
+	  noTasks.classList.add('hidden');
+	} else {
+	  noTasks.classList.remove('hidden');
+	}
+  }

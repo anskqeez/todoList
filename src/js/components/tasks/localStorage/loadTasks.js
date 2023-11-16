@@ -1,5 +1,5 @@
-import { createButton } from './createBtn';
-
+import { createButton } from '~components/tasks/createBtn';
+const noTasks = document.querySelector('.no__tasks');
 export function loadTasks() {
 	const tasksContainer = document.querySelector('#tasks-container');
 	const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
