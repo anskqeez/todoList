@@ -1,8 +1,8 @@
 import { createButton } from '~components/tasks/createBtn';
-const noTasks = document.querySelector('.no__tasks');
+import {updateNoTasksVisibility} from '~components/tasks/createTask';
+const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 export function loadTasks() {
 	const tasksContainer = document.querySelector('#tasks-container');
-	const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 	for (const task of savedTasks) {
 		const taskContainer = document.createElement('div');
@@ -20,11 +20,11 @@ export function loadTasks() {
 		taskContainer.append(taskDesc);
 		tasksContainer.append(taskContainer);
 	}
+	updateNoTasksVisibility();
 }
 
 // Сохранение задач в localStorage
 export function saveTask(title, description, checkMarkButton, deleteButton) {
-	const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 	savedTasks.push({ title, description, checkMarkButton, deleteButton });
 	localStorage.setItem('tasks', JSON.stringify(savedTasks));
 }

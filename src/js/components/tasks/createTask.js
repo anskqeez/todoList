@@ -35,8 +35,8 @@ export function clearFields(firstField, secondField) {
 export function updateNoTasksVisibility() {
 	const tasks = tasksContainer.querySelectorAll('.task');
 	if (tasks.length > 0) {
-	  noTasks.classList.add('hidden');
+		noTasks.classList.add('hidden');
 	} else {
-	  noTasks.classList.remove('hidden');
+		noTasks.classList.remove('hidden');
 	}
-  }
+}

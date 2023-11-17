@@ -1,4 +1,4 @@
-@import '_vars';
+@use '_vars';
 
 // Основные стили страницы
 body {
@@ -6,6 +6,18 @@ body {
 	// overflow:hidden;
 	padding: 1.25rem;
 	background-color: var(--primary-color);
+}
+
+input,
+textarea,
+button {
+	outline: none;
+	border: none;
+}
+
+div,
+button {
+	-webkit-tap-highlight-color: transparent;
 }
 
 .no__tasks {
